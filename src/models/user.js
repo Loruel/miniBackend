@@ -40,8 +40,8 @@ class User {
             'email',
             'password'
         ]
-        const encriptada = await bcrypt.hash(contraseña, 10)
-        const datosGuardar = [correo, encriptada]
+        
+        const datosGuardar = [correo, contraseña]
 
         if (nombre) {
             camposObligatorios.push('name')

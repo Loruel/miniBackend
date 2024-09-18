@@ -10,12 +10,14 @@ class UserController {
                 return r.status(400).json({ message: 'Datos incompletos' })
             }
 
+            const encriptadaPassword = await bcrypt.hash(contraseña, 10)
+
             const user = await User.create({
                 nombre,
                 descripcion,
                 correo,
                 telefono,
-                contraseña,
+                contraseña: encriptadaPassword,
                 foto
             })
 
